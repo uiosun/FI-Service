@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'accepted'             => ':attribute必须接受',
-    'active_url'           => ':attribute必须是一个合法的 URL',
+    'accepted'             => ':attribute 必须接受',
+    'active_url'           => ':attribute 必须是一个合法的 URL',
     'after'                => ':attribute 必须是 :date 之后的一个日期',
     'after_or_equal'       => ':attribute 必须是 :date 之后或相同的一个日期',
     'alpha'                => ':attribute只能包含字母',
@@ -144,7 +144,9 @@ return [
     | of "email". This simply helps us make our message more expressive.
     |
     */
-
-    'attributes' => [],
+    'attributes' => [
+        'email' => '邮箱',
+        'password' => '密码',
+    ],
 
 ];

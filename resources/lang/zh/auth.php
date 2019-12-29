@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'failed' => '登陆失败，可以尝试在官网“找回密码”',
+    'throttle' => '登录尝试过于频繁。请等待 :seconds 秒后，再尝试登录',
+    'unauthenticated' => '因 Token 失效或其他原因，服务器无法认证你的身份',
 ];

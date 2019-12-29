@@ -17,14 +17,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// 用户
 Route::post('register', 'Auth\RegisterController@register');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
 
 Route::group(['middleware' => 'auth:api'], function() {
+    // 城邦发展史
     Route::get('city-saved', 'CitySavedController@index');
-    Route::get('city-saved/{saved}', 'CitySavedController@show');
     Route::post('city-saved', 'CitySavedController@store');
-    Route::put('city-saved/{id}', 'CitySavedController@update');
-    Route::delete('city-saved/{id}', 'CitySavedController@delete');
+    Route::put('city-saved', 'CitySavedController@update');
 });

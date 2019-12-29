@@ -15,7 +15,7 @@ class CreateCitySavedsTable extends Migration
     {
         Schema::create('city_saveds', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('userID');
+            $table->string('ver', 7);
             $table->text('jsonString');
             $table->timestamps();
         });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\CitySaved;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -47,8 +48,16 @@ class LoginController extends Controller
             $user = $this->guard()->user();
             $user->generateToken();
 
+            if ($request->from === 'city') {
+                $saveData = CitySaved::find($user->id);
+                if ($saveData !== null) {
+                    $saveData = $saveData->toArray();
+                }
+            }
+
             return response()->json([
                 'data' => $user->toArray(),
+                'save' => $saveData,
             ]);
         }
 

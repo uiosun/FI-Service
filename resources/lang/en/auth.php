@@ -15,5 +15,5 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'unauthenticated' => 'Because Token overdue or other reason, server can\'t check your user status.',
 ];
