@@ -53,8 +53,30 @@ class CitySavedController extends Controller
         );
 
         $saveData = CitySaved::find(Auth::id());
-        $saveData->update($request->all());
+        if ($saveData !== null) {
+            $saveData->update($request->all());
+        }
 
         return $saveData;
+    }
+
+    /**
+     * 检查版本号，待实现
+     * @param Request $request
+     * @return string
+     */
+    public function checkVersion (Request $request)
+    {
+//        $this->validate($request, [
+//            'ver' => 'required|string|max:7',
+//            'from' => 'required|string',
+//        ], [],
+//            [
+//                'ver' => '版本号',
+//                'from' => '来源',
+//            ]
+//        );
+
+        return 'hello World!';
     }
 }

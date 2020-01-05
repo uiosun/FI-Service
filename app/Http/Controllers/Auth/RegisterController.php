@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\CitySaved;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -75,6 +76,14 @@ class RegisterController extends Controller
     {
         $user->generateToken();
 
-        return response()->json(['data' => $user->toArray()], 201);
+        $saveData = null;
+        if ($request->from === 'city') {
+            $saveData = CitySaved::find($user->id);
+            if ($saveData !== null) {
+                $saveData = $saveData->toArray();
+            }
+        }
+
+        return response()->json(['data' => $user->toArray(), 'save' => $saveData], 201);
     }
 }

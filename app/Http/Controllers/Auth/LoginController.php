@@ -48,6 +48,7 @@ class LoginController extends Controller
             $user = $this->guard()->user();
             $user->generateToken();
 
+            $saveData = null;
             if ($request->from === 'city') {
                 $saveData = CitySaved::find($user->id);
                 if ($saveData !== null) {

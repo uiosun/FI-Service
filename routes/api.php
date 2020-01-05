@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('register', 'Auth\RegisterController@register');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
+Route::get('new-ver', 'CitySavedController@checkVersion');
 
 Route::group(['middleware' => 'auth:api'], function() {
     // 城邦发展史
