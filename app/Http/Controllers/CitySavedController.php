@@ -61,22 +61,37 @@ class CitySavedController extends Controller
     }
 
     /**
+     * 获取签到收益清单
+     * 清单：是否已签到、本日签到收益、连签第 7 日的本周收益、连签第 30 日的本月收益
+     * 逻辑简述：周三开始签到，到下周二达到 7 日连签，搜索下周日的 7 日签到收益
+     * @return string
+     */
+    public function getGiftList ()
+    {
+        $result = null;
+
+        return $result;
+    }
+
+    /**
+     * 获取签到收益清单
+     * 清单：本日签到收益、连签第 7 日的本周收益、连签第 30 日的本月收益
+     * @return string
+     */
+    public function setGift ()
+    {
+        $result = null;
+
+        return $result;
+    }
+
+    /**
      * 检查版本号，待实现
      * @param Request $request
      * @return string
      */
     public function checkVersion (Request $request)
     {
-//        $this->validate($request, [
-//            'ver' => 'required|string|max:7',
-//            'from' => 'required|string',
-//        ], [],
-//            [
-//                'ver' => '版本号',
-//                'from' => '来源',
-//            ]
-//        );
-
         return 'hello World!';
     }
 }

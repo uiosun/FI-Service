@@ -28,4 +28,9 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('city-saved', 'CitySavedController@index');
     Route::post('city-saved', 'CitySavedController@store');
     Route::put('city-saved', 'CitySavedController@update');
+    Route::get('city-gift', 'CitySavedController@getGiftList');
+    Route::post('city-gift', 'CitySavedController@setGift');
+
+    // 修仙传
+    Route::get('immo/get-next-monster', 'ImmortalizeController@getNextMonster');
 });

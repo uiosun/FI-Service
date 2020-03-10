@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\CitySaved;
+use App\ImmoMap;
+use App\ImmoMonster;
+use App\ImmoUser;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Jenssegers\Agent\Facades\Agent;
 
 class RegisterController extends Controller
 {
@@ -82,8 +87,15 @@ class RegisterController extends Controller
             if ($saveData !== null) {
                 $saveData = $saveData->toArray();
             }
+        } else if ($request->from === 'immortalize') {  // 修仙传
+            $saveData['nowVersion'] = "0.01 (0002)";
+            $saveData['player'] = ImmoUser::createNew();
+            ImmoMap::setMap($saveData['player']->mapId);
+            $saveData['monsterId'] = ImmoMonster::getMonsterID($saveData['player']->mapId);  // 当前场景的首个怪物
         }
 
-        return response()->json(['data' => $user->toArray(), 'save' => $saveData], 201);
+        if (!Agent::isDesktop()) {
+            return response()->json(['data' => $user->toArray(), 'save' => $saveData], 201);
+        }
     }
 }

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://www.nicekingdom.com'),
+    'url' => env('APP_URL', 'http://www.nice-kingdom.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        'Jenssegers\Agent\AgentServiceProvider',
 
     ],
 
@@ -189,7 +190,7 @@ return [
     */
 
     'aliases' => [
-
+        'Agent' => 'Jenssegers\Agent\Facades\Agent',
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
